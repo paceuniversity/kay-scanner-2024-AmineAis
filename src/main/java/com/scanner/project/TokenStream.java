@@ -1,3 +1,9 @@
+
+package com.scanner.project;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 // TokenStream.java
 
 // Implementation of the Scanner for JAY
