@@ -38,10 +38,10 @@ public class TokenStream {
 	public TokenStream(String fileName) {
 		try {
 			input = new BufferedReader(new FileReader(fileName));
+			nextChar = readChar();
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found: " + fileName);
-			// System.exit(1); // Removed to allow ScannerDemo to continue
-			// running after the input file is not found.
+
 			isEof = true;
 		}
 	}
@@ -138,6 +138,14 @@ public class TokenStream {
 
 				return t;
 
+			case '=':
+				nextChar = readChar();
+				if (nextChar == '=') {
+					t.setValue("==");
+					nextChar = readChar();
+					}
+					return t;
+
 			default: // all other operators
 				nextChar = readChar();
 				return t;
@@ -220,7 +228,7 @@ public class TokenStream {
 	}
 
 	private boolean isKeyword(String s) {
-		return (|| s.equals("bool") || s.equals("if") || s.equals("else") ||
+		return (s.equals("bool") || s.equals("if") || s.equals("else") ||
                 s.equals("integer") || s.equals("main") || s.equals("while"));
 		
 	}
