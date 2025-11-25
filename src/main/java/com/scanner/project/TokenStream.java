@@ -1,5 +1,5 @@
 
-package com.scanner;
+package com.scanner.project;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
